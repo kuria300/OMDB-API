@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-primary: #030014;
+
+  --color-light-100: #cecefb;
+  --color-light-200: #a8b5db;
+
+  --color-gray-100: #9ca4ab;
+
+  --color-dark-100: #0f0d23;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer utilities{
+  /* Custom utility for text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-purple-400 to-pink-500 text-transparent bg-clip-text;
+  }
+  .pattern {
+    background-image: url('/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  body {
+    font-optical-sizing: auto;
+    background: #030014;
+  }
+
+}
+@layer components{
+  .search {
+    @apply w-[60%] bg-light-100 bg-opacity-5 py-2 rounded-lg mt-8 max-w-xl mx-auto;
+
+    & div {
+      @apply relative flex items-center;
+    }
+
+    & img {
+      @apply absolute left-2 h-5 w-5 m-2;
+    }
+
+    & input {
+      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-100 placeholder:text-base outline-none;
+    }
+  }
+
+  .all-movies {
+    @apply space-y-6 text-white;
+
+    & ul {
+      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  }
+  .movie-card {
+    @apply bg-dark-100 p-4 rounded-2xl shadow-inner shadow-light-100/5 ;
+
+    & img {
+      @apply rounded-lg h-auto w-full;
+    }
+
+    & h3 {
+      @apply text-white font-bold text-base line-clamp-1;
+    }
+
+    & .content {
+      @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+    }
+
+    & .rating {
+      @apply flex flex-row items-center gap-1;
+    }
+
+    & .rating img {
+      @apply size-4 object-contain;
+    }
+
+    & .rating p {
+      @apply font-bold text-base text-white;
+    }
+
+    & .content span {
+      @apply text-sm text-gray-100;
+    }
+
+    & .content .lang {
+      @apply capitalize text-gray-100 font-medium text-base;
+    }
+
+    & .content .year {
+      @apply text-gray-100 font-medium text-base;
+    }
+  }
+}
+
+
+
+
