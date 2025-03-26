@@ -4,8 +4,8 @@ import Search from './components/search'
 import Spinner from './components/spinner';
 import MovieCard from './components/movieCard';
 
-const API_KEY= import.meta.env.VITE_OMDB_API_KEY;
-const API_BASE_URL= `http://www.omdbapi.com/?apikey=${API_KEY}`
+const API_KEY = process.env.VITE_OMDB_API_KEY || import.meta.env.VITE_OMDB_API_KEY;
+const API_BASE_URL= `https://www.omdbapi.com/?apikey=${API_KEY}`
 
 function App() {
 const [search, setSearch] = useState('');
@@ -55,7 +55,7 @@ const fetchMovies = async(query='')=>{
    
   }catch(error){
     console.error(`Error fetching Movies: ${error}`);
-    setErrorMessage('Error fetching Movies, Please try again Later');
+    setErrorMessage(error||'Error fetching Movies, Please try again Later');
   } finally{
     setIsLoading(false)
   }
