@@ -62,7 +62,7 @@ const fetchMovies = async(query='')=>{
 }
 useEffect(()=>{
  
-    fetchMovies(debouncedValue || 'scream');
+    fetchMovies(debouncedValue || 'ratatouille');
 }, [debouncedValue])
  return(
     <main>
